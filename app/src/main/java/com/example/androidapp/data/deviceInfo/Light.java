@@ -2,9 +2,19 @@ package com.example.androidapp.data.deviceInfo;
 
 public class Light extends Device{
 
-	public int brightness;
-	public String color;
-	
+	//set default values for light device
+	public int brightness = 100;
+	public String color = "white";
+
+	//constructor sets essential information for light device
+	public Light(String name, String location){
+		super.name = name;
+		super.type = "Light";
+		super.location = location;
+		Device.numDevices++;
+		super.deviceID = numDevices;
+	}
+
 	public int getBrightness() {
 		return brightness;
 	}

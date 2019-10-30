@@ -12,9 +12,14 @@ public class Device {
 		
 		
 		public Device() {
-			
 		}
-		
+
+		/**
+		 * Creates a new IoT device.
+		 * @param name custom identifier name for device
+		 * @param type type of device (i.e. fan, light, tv, or thermostat)
+		 * @param location location in building of device
+		 */
 		public void addDevice(String name, String type, String location) {
 			this.name = name;
 			this.type = type;
@@ -27,7 +32,7 @@ public class Device {
 			this.name = null;
 			this.type = null;
 			this.location = null;
-			this.status = null;
+			//this.status = null;
 		}
 		
 		public String getName() {
@@ -70,11 +75,12 @@ public class Device {
 			this.isOn = isOn;
 		}
 
-		public String getStatus() {
+		 public String getStatus() {
 			return status;
 		}
 
-		public void setStatus(String status) {
+		 public void setStatus(String status) {
+
 			this.status = status;
 		}
 
@@ -85,5 +91,4 @@ public class Device {
 		public static void setNumDevices(int numDevices) {
 			Device.numDevices = numDevices;
 		}
-
 }
