@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Thermostat"></activity>
+        <activity android:name=".AddThermostat"></activity>
+        <activity android:name=".AddTv" />
+        <activity android:name=".AddFan" />
+        <activity android:name=".AddLight" />
+        <activity android:name=".AddDevice" />
+        <activity android:name=".Thermostat" />
         <activity android:name=".Television" />
         <activity android:name=".Lights" />
         <activity android:name=".CeilingFan" />
