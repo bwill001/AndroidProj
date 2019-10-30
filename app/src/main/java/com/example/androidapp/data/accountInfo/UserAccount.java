@@ -1,7 +1,11 @@
 package com.example.androidapp.data.accountInfo;
 
-public class UserAccount {
-    private String acctID;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+class UserAccount {
+    private int acctID;
     private String accountType;
 
     private String username;
@@ -15,12 +19,32 @@ public class UserAccount {
     private String address;
     private String email;
     private String phoneNumber;
+    static int numOfAccounts;
 
-    public String getAcctID() {
+    protected UserAccount(String username, String password, String fname, String lname, String address,
+                          String email, String phone) {
+        this.username = username;
+        this.password = password;
+        this.firstName = fname;
+        this.lastName = lname;
+        this.address = address;
+        this.email = email;
+        this.phoneNumber = phone;
+        this.accountType = "Standard Account";
+
+        //account id corresponds to order of creation
+        UserAccount.numOfAccounts++;
+        this.acctID = numOfAccounts;
+
+        DateFormat df = new SimpleDateFormat("MM-dd-yyyy");
+        this.creationDate = df.format(Calendar.getInstance().getTime());
+    }
+
+    public int getAcctID() {
         return acctID;
     }
 
-    public void setAcctID(String acctID) {
+    public void setAcctID(int acctID) {
         this.acctID = acctID;
     }
 
