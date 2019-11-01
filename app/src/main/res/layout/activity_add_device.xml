@@ -53,4 +53,5 @@
         android:text="Ceiling Fan"
         app:layout_constraintStart_toStartOf="@+id/addLightButton"
         app:layout_constraintTop_toBottomOf="@+id/addThermButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
