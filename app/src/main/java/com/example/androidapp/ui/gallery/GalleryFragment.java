@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -14,7 +15,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.androidapp.R;
 
-public class GalleryFragment extends Fragment {
+public class GalleryFragment extends Fragment{
 
     private GalleryViewModel galleryViewModel;
 
@@ -28,6 +29,10 @@ public class GalleryFragment extends Fragment {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
+
+        Button lightsButton = (Button)findViewById(R.id.lightsButton);
+
+
             }
         });
         return root;
