@@ -1,14 +1,16 @@
-package com.example.androidapp;
+package com.example.androidapp.create;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class AddThermostat extends AppCompatActivity {
+import com.example.androidapp.R;
+
+public class AddFan extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_thermostat);
+        setContentView(R.layout.activity_add_fan);
     }
 }
