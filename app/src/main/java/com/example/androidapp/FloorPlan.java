@@ -1,25 +1,39 @@
-package com.example.androidapp.control;
+package com.example.androidapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 
-import com.example.androidapp.AlertsPage;
-import com.example.androidapp.FloorPlan;
-import com.example.androidapp.HubPage;
-import com.example.androidapp.R;
-import com.example.androidapp.SettingsPage;
+import com.example.androidapp.control.DeviceSelection;
 import com.example.androidapp.create.AddDevice;
 
-public class CeilingFan extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class FloorPlan extends AppCompatActivity {
+    DatabaseHelper roomDb;
+    EditText roomName;
+    Button addRoomButton;
+    Button viewRoomButton;
+
+    TextView viewRoom;
+
+    Spinner roomSpinner;
+    List<String> roomNames;
 
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -73,23 +87,48 @@ public class CeilingFan extends AppCompatActivity {
 
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ceiling_fan);
+        setContentView(R.layout.activity_floor_plan);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Button fanBackButton = (Button)findViewById(R.id.fanBackButton);
 
-        fanBackButton.setOnClickListener(new View.OnClickListener() {
+        roomDb = new DatabaseHelper(this);
+
+        roomName = (EditText)findViewById(R.id.addRoomField);
+        addRoomButton = (Button)findViewById(R.id.addRoomButton);
+        viewRoomButton = (Button)findViewById(R.id.viewRoomButton);
+
+        viewRoom = (TextView)findViewById(R.id.roomNameViewer);
+
+         roomSpinner = (Spinner)findViewById(R.id.roomSpinner);
+
+
+    }
+
+
+
+    public void AddData(){
+        addRoomButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent backToDevices = new Intent(getApplicationContext(), DeviceSelection.class);
-                startActivity(backToDevices);
+                roomDb.insertData(roomName.getText().toString(), "NA");
             }
         });
     }
+
+    public void getRooms(){
+        viewRoomButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Cursor res = roomDb.getRooms();
+               viewRoom.setText(res.toString());
+            }
+        });
+
+    }
+
 }

@@ -1,4 +1,4 @@
-package com.example.androidapp.control;
+package com.example.androidapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,17 +9,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
-import com.example.androidapp.AlertsPage;
-import com.example.androidapp.FloorPlan;
-import com.example.androidapp.HubPage;
-import com.example.androidapp.R;
-import com.example.androidapp.SettingsPage;
+import com.example.androidapp.control.DeviceSelection;
 import com.example.androidapp.create.AddDevice;
 
-public class CeilingFan extends AppCompatActivity {
+public class AlertsPage extends AppCompatActivity {
 
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -73,23 +67,12 @@ public class CeilingFan extends AppCompatActivity {
 
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ceiling_fan);
+        setContentView(R.layout.activity_alerts_page);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        Button fanBackButton = (Button)findViewById(R.id.fanBackButton);
-
-        fanBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent backToDevices = new Intent(getApplicationContext(), DeviceSelection.class);
-                startActivity(backToDevices);
-            }
-        });
     }
 }

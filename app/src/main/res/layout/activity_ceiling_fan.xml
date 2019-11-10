@@ -6,6 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".control.CeilingFan">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        />
+
+
     <TextView
         android:id="@+id/fanTitle"
         android:layout_width="wrap_content"
@@ -26,4 +32,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="407dp"
+        tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

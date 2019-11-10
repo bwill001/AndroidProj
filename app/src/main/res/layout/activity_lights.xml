@@ -6,6 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".control.Lights">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        />
+
+
     <TextView
         android:id="@+id/lightsTitle"
         android:layout_width="wrap_content"
@@ -23,6 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="250dp"
         android:text="Light"
+        android:textColor="@color/colorText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
