@@ -31,7 +31,9 @@ public class GalleryFragment extends Fragment{
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
 
+
       //  Button lightsButton = (Button)findViewById(R.id.lightsButton);
+
 
 
             }
