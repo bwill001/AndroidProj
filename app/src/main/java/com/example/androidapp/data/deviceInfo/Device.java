@@ -20,7 +20,7 @@ public class Device {
 		 * @param type type of device (i.e. fan, light, tv, or thermostat)
 		 * @param location location in building of device
 		 */
-		public void addDevice(String name, String type, String location) {
+		public void Device(String name, String type, String location) {
 			this.name = name;
 			this.type = type;
 			this.location = location;
