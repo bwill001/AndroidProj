@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <item android:id="@+id/homeMenu"
+            android:icon="@drawable/ic_home_black"
+            android:title="Home"
+
+            />
+
+        <item android:id="@+id/devicesMenu"
+            android:icon="@drawable/ic_lightbulb_outline"
+            android:title="Devices"
+            >
+
+            <menu>
+
+                <item android:id="@+id/controlDevice"
+                    android:title="Control Devices"
+                    />
+
+                <item android:id="@+id/addDeviceMenu"
+                    android:title="Add Devices"
+                    />
+
+            </menu>
+        </item>
+
+        <item android:id="@+id/alertsMenu"
+            android:icon="@drawable/ic_notifications"
+            android:title="Alerts"
+            />
+
+        <item android:id="@+id/floorplanMenu"
+            android:icon="@drawable/ic_grid_on"
+            android:title="Floor Plan"
+            />
+
+        <item android:id="@+id/settingsMenu"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Settings"
+            />
+        <item android:id="@+id/logOutMenu"
+            android:icon="@drawable/ic_person_outline"
+            android:title="Log Out"
+            />
+</menu>
