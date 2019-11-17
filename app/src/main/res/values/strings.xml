@@ -17,10 +17,17 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    <!--Strings related to menu-->
     <string name="menu_home">Home</string>
     <string name="menu_devices">Devices</string>
     <string name="menu_slideshow">Alerts</string>
     <string name="menu_tools">Settings</string>
     <string name="menu_share">Floor Plan</string>
     <string name="menu_send">Log Out</string>
+
+    <!--Strings related to TV device-->
+    <string name="add_tv_title">Add Television</string>
+    <string name="tv_location_hint">Location</string>
+    <string name="tv_name_hint">Name</string>
+    <string name="add_tv_button">Add</string>
 </resources>
