@@ -1,5 +1,6 @@
 package com.example.androidapp.ui.gallery;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,7 +31,9 @@ public class GalleryFragment extends Fragment{
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
 
-        //Button lightsButton = (Button)findViewById(R.id.lightsButton);
+
+      //  Button lightsButton = (Button)findViewById(R.id.lightsButton);
+
 
 
             }

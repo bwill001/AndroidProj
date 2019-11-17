@@ -4,27 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddFan">
+    tools:context=".create.AddFan">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        />
+
 
     <TextView
         android:id="@+id/addFanTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
         android:text="Add Ceiling Fan"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="81dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/enterFanName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
         android:ems="10"
         android:inputType="text"
         android:text="Name"
-        tools:layout_editor_absoluteX="79dp"
-        tools:layout_editor_absoluteY="264dp" />
+        android:textColor="@color/colorText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/enterFanLocation"
@@ -34,6 +44,7 @@
         android:ems="10"
         android:inputType="text"
         android:text="Location"
+        android:textColor="@color/colorText"
         app:layout_constraintStart_toStartOf="@+id/enterFanName"
         app:layout_constraintTop_toBottomOf="@+id/enterFanName" />
 
@@ -43,6 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Add"
-        app:layout_constraintTop_toBottomOf="@+id/enterFanLocation"
-        tools:layout_editor_absoluteX="166dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enterFanLocation" />
 </androidx.constraintlayout.widget.ConstraintLayout>

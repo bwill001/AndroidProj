@@ -4,27 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddTv">
+    tools:context=".create.AddTv">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        />
+
 
     <TextView
         android:id="@+id/addTvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
         android:text="Add Television"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="70dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/enterTvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
         android:ems="10"
         android:inputType="text"
         android:text="Name"
-        tools:layout_editor_absoluteX="89dp"
-        tools:layout_editor_absoluteY="240dp" />
+        android:textColor="@color/colorText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/enterTvLocation"
@@ -34,6 +44,7 @@
         android:ems="10"
         android:inputType="text"
         android:text="Location"
+        android:textColor="@color/colorText"
         app:layout_constraintStart_toStartOf="@+id/enterTvName"
         app:layout_constraintTop_toBottomOf="@+id/enterTvName" />
 
@@ -43,6 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Add"
-        app:layout_constraintTop_toBottomOf="@+id/enterTvLocation"
-        tools:layout_editor_absoluteX="166dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enterTvLocation" />
 </androidx.constraintlayout.widget.ConstraintLayout>
