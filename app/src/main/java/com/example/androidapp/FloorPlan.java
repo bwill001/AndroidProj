@@ -141,7 +141,7 @@ public class FloorPlan extends AppCompatActivity {
         addRoomButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                roomDb.insertData(roomName.getText().toString(), "NA");
+                roomDb.insertData(roomName.getText().toString());
             }
         });
     }
