@@ -1,6 +1,7 @@
 package com.example.androidapp;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -17,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.androidapp.control.DeviceSelection;
 import com.example.androidapp.create.AddDevice;
@@ -29,11 +31,13 @@ public class FloorPlan extends AppCompatActivity {
     EditText roomName;
     Button addRoomButton;
     Button viewRoomButton;
+    Button removeRoomButton;
 
-    TextView viewRoom;
 
-    Spinner roomSpinner;
-    List<String> roomNames;
+    EditText editRoomNumberField;
+    Button updateRoomButton;
+
+
 
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -101,12 +105,34 @@ public class FloorPlan extends AppCompatActivity {
         roomName = (EditText)findViewById(R.id.addRoomField);
         addRoomButton = (Button)findViewById(R.id.addRoomButton);
         viewRoomButton = (Button)findViewById(R.id.viewRoomButton);
+        updateRoomButton = (Button) findViewById(R.id.updateRoomButton);
+        removeRoomButton = (Button)findViewById(R.id.removeRoomButton);
+        editRoomNumberField = (EditText)findViewById(R.id.editRoomNumberField);
 
-        viewRoom = (TextView)findViewById(R.id.roomNameViewer);
+        AddData();
+        getRooms();
+        updateNames();
+        removeRoom();
 
-         roomSpinner = (Spinner)findViewById(R.id.roomSpinner);
+
+        roomName.setOnFocusChangeListener(new View.OnFocusChangeListener(){
+            public void onFocusChange(View v, boolean hasFocus){
+                if(hasFocus)
+                    roomName.setHint("");
+                else
+                    roomName.setHint("Room Name");
+            }
+        });
 
 
+        editRoomNumberField.setOnFocusChangeListener(new View.OnFocusChangeListener(){
+            public void onFocusChange(View v, boolean hasFocus){
+                if(hasFocus)
+                    roomName.setHint("");
+                else
+                    roomName.setHint("Room Name");
+            }
+        });
     }
 
 
@@ -125,8 +151,50 @@ public class FloorPlan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                Cursor res = roomDb.getRooms();
-               viewRoom.setText(res.toString());
+               if(res.getCount() == 0){
+                   showMessage("Error", "No rooms saved");
+               }else {
+                   StringBuffer buff = new StringBuffer();
+                   while (res.moveToNext()) {
+                       buff.append("Room: " + res.getString(1) + "\n");
+                   }
+
+                   showMessage("Rooms", buff.toString());
+               }
             }
+        });
+
+    }
+
+
+    public void showMessage(String title, String message){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(message);
+        builder.show();
+
+    }
+
+
+
+    public void updateNames(){
+        updateRoomButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean isUpdated = roomDb.updateRoom(editRoomNumberField.getText().toString(), roomName.getText().toString());
+
+               }
+        });
+    }
+
+    public void removeRoom(){
+        removeRoomButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Integer deleteRoom = roomDb.deleteRoom(editRoomNumberField.getText().toString());
+
+               }
         });
 
     }

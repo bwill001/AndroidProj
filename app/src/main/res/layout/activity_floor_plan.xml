@@ -47,32 +47,50 @@
         app:layout_constraintTop_toBottomOf="@+id/addRoomField" />
 
 
-    <Spinner
-        android:id="@+id/roomSpinner"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addRoomButton" />
-
     <Button
         android:id="@+id/viewRoomButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="View"
+        android:layout_marginTop="8dp"
+        android:text="Show List"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/roomSpinner" />
+        app:layout_constraintTop_toBottomOf="@+id/addRoomButton" />
 
-    <TextView
-        android:id="@+id/roomNameViewer"
+    <Button
+        android:id="@+id/updateRoomButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:layout_marginStart="75dp"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="16dp"
+        android:text="Rename"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editRoomNumberField" />
+
+    <EditText
+        android:id="@+id/editRoomNumberField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="Enter Room Number"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewRoomButton" />
+
+    <Button
+        android:id="@+id/removeRoomButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="75dp"
+        android:layout_marginRight="75dp"
+        android:text="Remove"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editRoomNumberField" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,7 +14,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String COL1 = "ID";
     private static final String COL2 = "ROOMS";
-    private static final String COL3 = "DEVICES";
+
 
     public DatabaseHelper(Context context){
         super(context, DATABASE_NAME, null, 1);
@@ -37,7 +37,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL2, rooms);
-        contentValues.put(COL3, devices);
+
         long result = db.insert(TABLE_NAME, null, contentValues);
 
         if(result == -1)
@@ -49,9 +49,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Cursor getRooms(){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select ROOMS from " + TABLE_NAME, null);
+        Cursor res = db.rawQuery("select * from " + TABLE_NAME, null);
         return res;
 
     }
 
+    public boolean updateRoom(String id, String rooms){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL1, id);
+        contentValues.put(COL2, rooms);
+        db.update(TABLE_NAME, contentValues, "ID = ?", new String[] {id});
+        return true;
+    }
+
+    public Integer deleteRoom(String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_NAME, "ID = ?", new String[] {id});
+
+    }
 }
