@@ -6,17 +6,21 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class DatabaseHelper extends SQLiteOpenHelper {
+public class DeviceDatabaseHelper extends SQLiteOpenHelper {
 
-    private static final String TAG = "DatabaseHelper";
-    private static final String DATABASE_NAME = "DataTable.db";
-    private static final String TABLE_NAME = "data_table";
+    private static final String TAG = "DeviceDatabaseHelper";
+    private static final String DATABASE_NAME = "DeviceDataTable.db";
+    private static final String TABLE_NAME = "device_table";
 
     private static final String COL1 = "ID";
-    private static final String COL2 = "ROOMS";
+    private static final String COL2 = "NAME";
+    private static final String COL3 = "TYPE";
+    private static final String COL4 = "ROOM";
+    private static final String COL5 = "STATUS";
 
 
-    public DatabaseHelper(Context context){
+
+    public DeviceDatabaseHelper(Context context){
         super(context, DATABASE_NAME, null, 1);
 
     }
@@ -30,7 +34,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public void onCreate(SQLiteDatabase db) {
-      db.execSQL("CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, ROOMS TEXT)");
+        db.execSQL("CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, TYPE TEXT, ROOMS TEXT, STATUS TEXT)");
     }
 
     public boolean insertData(String rooms){
@@ -47,14 +51,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public Cursor getRooms(){
+    public Cursor getDevices(){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from " + TABLE_NAME, null);
         return res;
 
     }
 
-    public boolean updateRoom(String id, String rooms){
+    public boolean updateDevices(String id, String rooms){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL1, id);
@@ -63,7 +67,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public Integer deleteRoom(String id){
+    public Integer deleteDevices(String id){
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(TABLE_NAME, "ID = ?", new String[] {id});
 
