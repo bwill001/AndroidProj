@@ -14,7 +14,6 @@
         android:text="@string/add_tv_title"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,7 +30,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.029"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addTvTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/addTvTitle"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/enterTvLocation"
@@ -42,7 +42,8 @@
         android:hint="@string/tv_location_hint"
         android:inputType="text"
         app:layout_constraintStart_toStartOf="@+id/enterTvName"
-        app:layout_constraintTop_toBottomOf="@+id/enterTvName" />
+        app:layout_constraintTop_toBottomOf="@+id/enterTvName"
+        android:importantForAutofill="no" />
 
     <Button
         android:id="@+id/createTvButton"
