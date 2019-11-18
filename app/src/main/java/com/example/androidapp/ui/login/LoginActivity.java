@@ -20,8 +20,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+
 //import com.example.androidapp.;
 //import com.example.androidapp.AddTv;
+
 import com.example.androidapp.R;
 import com.example.androidapp.create.AddDevice;
 
@@ -114,9 +116,6 @@ public class LoginActivity extends AppCompatActivity {
                 loadingProgressBar.setVisibility(View.VISIBLE);
                 loginViewModel.login(usernameEditText.getText().toString(),
                         passwordEditText.getText().toString());
-
-                Intent startAddDevice = new Intent(getApplicationContext(), AddDevice.class);
-                startActivity(startAddDevice);
             }
         });
     }
@@ -130,5 +129,4 @@ public class LoginActivity extends AppCompatActivity {
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
-
 }
