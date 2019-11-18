@@ -1,6 +1,10 @@
 package com.example.androidapp.data.deviceInfo;
 
-public class Television extends Device {
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
+public class Television extends Device implements Serializable {
 
 	//set default values for TV device
 	public int volume = 10;

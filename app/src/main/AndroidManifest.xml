@@ -15,7 +15,7 @@
         <activity android:name=".AddLight" />
         <activity android:name=".AddDevice" />
         <activity android:name=".Thermostat" />
-        <activity android:name=".Television" />
+        <activity android:name=".Television" android:exported="true"/>
         <activity android:name=".Lights" />
         <activity android:name=".CeilingFan" />
         <activity
@@ -29,6 +29,8 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
+
             </intent-filter>
         </activity>
     </application>

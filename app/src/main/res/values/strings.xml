@@ -30,4 +30,5 @@
     <string name="tv_location_hint">Location</string>
     <string name="tv_name_hint">Name</string>
     <string name="add_tv_button">Add</string>
+    <string name="tv_settings_title"></string>
 </resources>
