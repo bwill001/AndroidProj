@@ -9,8 +9,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.androidapp.AlertsPage;
+import com.example.androidapp.DeviceDatabaseHelper;
 import com.example.androidapp.FloorPlan;
 import com.example.androidapp.HubPage;
 import com.example.androidapp.R;
@@ -18,6 +22,12 @@ import com.example.androidapp.SettingsPage;
 import com.example.androidapp.control.DeviceSelection;
 
 public class AddThermostat extends AppCompatActivity {
+
+    DeviceDatabaseHelper deviceDB;
+    Button createThermButton;
+
+    EditText enterThermoName;
+    EditText enterThermoLocation;
 
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -79,5 +89,24 @@ public class AddThermostat extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        deviceDB = new DeviceDatabaseHelper(this);
+
+       createThermButton = (Button)findViewById(R.id.createThermoButton);
+
+       enterThermoName = (EditText)findViewById(R.id.enterThermoName);
+       enterThermoLocation = (EditText)findViewById(R.id.enterThermoLocation);
+
+       AddDevice();
     }
+
+    public void AddDevice(){
+        createThermButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deviceDB.insertDataThermo(enterThermoName.getText().toString(), enterThermoLocation.getText().toString());
+            }
+        });
+    }
+
 }

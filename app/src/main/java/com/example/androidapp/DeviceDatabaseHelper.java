@@ -10,13 +10,15 @@ public class DeviceDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String TAG = "DeviceDatabaseHelper";
     private static final String DATABASE_NAME = "DeviceDataTable.db";
-    private static final String TABLE_NAME = "device_table";
+    public static final String TABLE_NAME = "device_table";
 
-    private static final String COL1 = "ID";
-    private static final String COL2 = "NAME";
-    private static final String COL3 = "TYPE";
-    private static final String COL4 = "ROOM";
-    private static final String COL5 = "STATUS";
+    public static final String COL1 = "ID";
+    public static final String COL2 = "NAME";
+    public static final String COL3 = "TYPE";
+    public static final String COL4 = "ROOM";
+    public static final String COL5 = "STATUS";
+    public static final String COL6 = "TEMPR";
+    public static final String COL7 = "MODE";
 
 
 
@@ -34,7 +36,7 @@ public class DeviceDatabaseHelper extends SQLiteOpenHelper {
     }
 
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, TYPE TEXT, ROOMS TEXT, STATUS TEXT)");
+        db.execSQL("CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, TYPE TEXT, ROOM TEXT, STATUS TEXT, TEMPR TEXT, MODE TEXT)");
     }
 
     public boolean insertData(String rooms){
@@ -70,6 +72,36 @@ public class DeviceDatabaseHelper extends SQLiteOpenHelper {
     public Integer deleteDevices(String id){
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(TABLE_NAME, "ID = ?", new String[] {id});
+
+    }
+
+
+
+    //thermostat
+    public boolean insertDataThermo(String name, String rooms){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(COL2, name);
+        contentValues.put(COL3, "Thermostat");
+        contentValues.put(COL4, rooms);
+        contentValues.put(COL5, "NA");
+        contentValues.put(COL6, "70");
+        contentValues.put(COL7, "COOL");
+
+        long result = db.insert(TABLE_NAME, null, contentValues);
+
+        if(result == -1)
+            return false;
+        else
+            return true;
+
+    }
+
+    public Cursor getDevicesThermo(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from " + TABLE_NAME + " WHERE TYPE='Thermostat'", null);
+        return res;
 
     }
 }
