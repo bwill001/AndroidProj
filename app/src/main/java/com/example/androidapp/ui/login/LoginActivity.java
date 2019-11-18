@@ -20,9 +20,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.androidapp.AddDevice;
-import com.example.androidapp.AddTv;
+//import com.example.androidapp.;
+//import com.example.androidapp.AddTv;
 import com.example.androidapp.R;
+import com.example.androidapp.create.AddDevice;
 
 public class LoginActivity extends AppCompatActivity {
 
