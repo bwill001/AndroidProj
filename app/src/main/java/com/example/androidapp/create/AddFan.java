@@ -9,13 +9,17 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.androidapp.AlertsPage;
 import com.example.androidapp.FloorPlan;
 import com.example.androidapp.HubPage;
 import com.example.androidapp.R;
 import com.example.androidapp.SettingsPage;
+import com.example.androidapp.control.CeilingFan;
 import com.example.androidapp.control.DeviceSelection;
+import com.example.androidapp.control.Television;
 
 public class AddFan extends AppCompatActivity {
 
@@ -79,5 +83,15 @@ public class AddFan extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Button createFanButton = (Button)findViewById(R.id.createFanButton);
+
+        createFanButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent startTv = new Intent(getApplicationContext(), CeilingFan.class);
+                startActivity(startTv);
+            }
+        });
     }
 }
