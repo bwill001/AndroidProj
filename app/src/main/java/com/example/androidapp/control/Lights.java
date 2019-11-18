@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.androidapp.AlertsPage;
 import com.example.androidapp.FloorPlan;
@@ -91,5 +92,12 @@ public class Lights extends AppCompatActivity {
                 startActivity(backToDevices);
             }
         });
+
+        Intent i = this.getIntent();
+
+        String lightName = i.getStringExtra("lightName");
+
+        final TextView tvTitle = findViewById(R.id.lightsTitle);
+        tvTitle.setText(lightName + " Settings");
     }
 }

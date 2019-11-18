@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.androidapp.AlertsPage;
 import com.example.androidapp.FloorPlan;
@@ -85,11 +86,13 @@ public class AddLight extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         Button createLightButton = (Button)findViewById(R.id.createLightButton);
+        final EditText lightName = (EditText)findViewById(R.id.enterLightName);
 
         createLightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent startTv = new Intent(getApplicationContext(), Lights.class);
+                startTv.putExtra("lightName", lightName.getText().toString());
                 startActivity(startTv);
             }
         });
